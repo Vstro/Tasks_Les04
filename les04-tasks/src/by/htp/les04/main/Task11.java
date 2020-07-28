@@ -6,19 +6,12 @@ public class Task11 {
 
 	public static void main(String[] args) {
 		int[][] matrix = new int[10][20];
-		Random rand = new Random();
 		int fives = 0;
 		
-		System.out.println("Матрица: ");
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				matrix[i][j] = rand.nextInt(16);
-				System.out.print(matrix[i][j] + " ");
-			}
-			System.out.println();
-		}
+		initMatrix(matrix);
+		printMatrix(matrix);
 		
-		System.out.print("Номера строк, где число 5 встречается 3 и более раз: ");
+		System.out.print("Номера строк (начиная с 0), где число 5 встречается 3 и более раз: ");
 		for (int i = 0; i < matrix.length; i++) {
 			fives = 0;
 			for (int j = 0; j < matrix[i].length; j++) {
@@ -31,5 +24,23 @@ public class Task11 {
 			}
 		}
 	}
+	
+	public static void printMatrix(int[][] matrix) {
+		System.out.println("Матрица: ");
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				System.out.printf("[%2d] ", matrix[i][j]);
+			}
+			System.out.println();
+		}
+	}
 
+	public static void initMatrix(int[][] matrix) {
+		Random rand = new Random();
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				matrix[i][j] = rand.nextInt(16);
+			}
+		}
+	}
 }
